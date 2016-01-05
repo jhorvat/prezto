@@ -31,10 +31,10 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'utility' \
+  'python'\
   'completion' \
   'history-substring-search' \
   'git' \
-  'python'\
   'prompt'
 
 #
