@@ -17,5 +17,3 @@ export PROJECT_HOME=$HOME/Workspace
 source /usr/local/bin/virtualenvwrapper.sh
 
 alias git=hub
-# Double tunnel through portkey to the uogmoble VM
-alias uogmobile="ssh -A -t horvat@portkey.socs.uoguelph.ca \ ssh -A -t sysadmin@131.104.49.59"
