@@ -11,7 +11,5 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-export WH_SDK=$HOME/Workspace/IA/whsdk
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jhorvat/Library/Android/sdk/platform-tools:$WH_SDK/tools"
-export ANDROID_HOME="/Users/jhorvat/Library/Android/sdk"
-alias git=hub
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/julianhorvat/Library/Android/sdk/platform-tools"
+export ANDROID_HOME="/Users/julianhorvat/Library/Android/sdk"
