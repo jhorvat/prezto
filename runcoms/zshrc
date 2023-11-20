@@ -11,50 +11,26 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-export DEVELOPER_SETUP_ROOT="/Users/julianhorvat/Workspace/developer-setup"
+export DEVELOPER_SETUP_ROOT=$HOME/Workspace/developer-setup
 export PIP_EXTRA_INDEX_URL=https://pypi.fury.io/$GEMFURY_TOKEN/dialogue
 export ANDROID_HOME=/Users/$USER/Library/Android/sdk
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$HOME/.local/bin
 fpath=(/usr/local/share/zsh-completions $fpath)
-
-export GUESTLIST_TENANT_DOMAIN=dev-ca.dialogue.auth0.com
-export GUESTLIST_CLIENT_ID=5WId18fxtt6tfrlUrDixvuVX3Z7OELQi
-export GUESTLIST_CLIENT_SECRET=-IBT9lKjk-XXoAanaYCU01TezQj8ti1-D2THnNhTOROija9apQ4zGskRWnc9CaXQ
-export GUESTLIST_AUDIENCE=https://api.dev.dialoguecorp.com
-export AWS_VAULT_KEYCHAIN_NAME=login
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source "${DEVELOPER_SETUP_ROOT}/scripts/lib/aws-vault.sh"
-source "${DEVELOPER_SETUP_ROOT}/scripts/lib/packages.sh"
-source "${DEVELOPER_SETUP_ROOT}/scripts/lib/db_connect.sh"
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/julianhorvat/Workspace/orwell/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/julianhorvat/Workspace/orwell/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/julianhorvat/Workspace/orwell/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/julianhorvat/Workspace/orwell/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/julianhorvat/Workspace/orwell/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/julianhorvat/Workspace/orwell/node_modules/tabtab/.completions/slss.zsh
-
 eval "$(pyenv init -)"
 eval "$(direnv hook zsh)"
-
-export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 # begin appcenter completion
 . <(appcenter --completion)
 # end appcenter completion
 
-alias kcx="kubectx"
-alias kns="kubens"
-alias kk="kubectl krew"
-alias kl="kubectl logs --pod-running-timeout=20s --tail=100"
-alias kla="kubectl logs -l component=app --all-containers --tail 500"
-alias kge="kubectl get events --sort-by=.metadata.creationTimestamp"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
+source ~/.dia_zshrc
