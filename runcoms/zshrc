@@ -12,12 +12,10 @@ fi
 
 # Customize to your needs...
 export DEVELOPER_SETUP_ROOT=$HOME/Workspace/developer-setup
-export PIP_EXTRA_INDEX_URL=https://pypi.fury.io/$GEMFURY_TOKEN/dialogue
 export ANDROID_HOME=/Users/$USER/Library/Android/sdk
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$HOME/.local/bin
 fpath=(/usr/local/share/zsh-completions $fpath)
-export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -25,6 +23,7 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(pyenv init -)"
 eval "$(direnv hook zsh)"
+eval "$(rbenv init - zsh)"
 
 # begin appcenter completion
 . <(appcenter --completion)
